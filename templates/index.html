@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RAG Code Analyzer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        textarea { width: 100%; height: 150px; }
+        pre { background: #f4f4f4; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>RAG Code Analyzer</h1>
+    <form method="POST">
+        <label for="query">Câu hỏi:</label><br>
+        <textarea name="query" id="query">{{ query or '' }}</textarea><br><br>
+        <input type="submit" value="Phân tích">
+    </form>
+
+    {% if analysis %}
+    <h2>Kết quả phân tích:</h2>
+    <pre>{{ analysis }}</pre>
+    <h3>Đoạn code liên quan:</h3>
+    {% for code in related_code %}
+    <pre>{{ code }}</pre>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

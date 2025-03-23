@@ -1,3 +1,4 @@
 models
 faiss_index
+chroma_db
 source_code
